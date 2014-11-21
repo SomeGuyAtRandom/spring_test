@@ -7,6 +7,8 @@
 	<bean id="triangle" class="la.random.spring.shapes.Triangle">
 		<property name="type" value="Equaliteral" />
 	</bean>
-	<bean id="circle" class="la.random.spring.shapes.Circle" />
+	<bean id="circle" class="la.random.spring.shapes.Circle">
+		<constructor-arg value="5"/>
+	</bean>
 
 </beans>
