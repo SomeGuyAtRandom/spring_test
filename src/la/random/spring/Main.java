@@ -1,5 +1,11 @@
 package la.random.spring;
 
+import org.springframework.beans.factory.BeanFactory;
+import org.springframework.beans.factory.xml.XmlBeanFactory;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.core.io.FileSystemResource;
+
 import la.random.spring.shapes.Circle;
 import la.random.spring.shapes.Drawing;
 import la.random.spring.shapes.Triangle;
@@ -8,7 +14,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		System.out.println("Hello");
-		demo01();
+		demo02();
 		
 		
 		
@@ -16,6 +22,13 @@ public class Main {
 
 	private static void demo02(){
 		
+		ApplicationContext context= new ClassPathXmlApplicationContext("spring.xml");
+		Triangle triangle = (Triangle)context.getBean("triangle");
+		
+		
+		Drawing drawing = new Drawing();
+		drawing.setShape(triangle);
+		drawing.drawShape();
 		
 	}
 
