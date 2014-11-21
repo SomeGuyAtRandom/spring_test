@@ -3,24 +3,34 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans 
 		http://www.springframework.org/schema/beans/spring-beans.xsd">
-	
+
 	<bean id="parentTriangle" class="la.random.spring.shapes.Triangle">
-		<property name="pointA" ref="origin" />
+		<property name="points">
+			<list>
+				<ref bean="origin" />
+			</list>
+		</property>
 	</bean>
 
-	<bean id="triangle1" class="la.random.spring.shapes.Triangle" parent="parentTriangle">
-		<property name="pointB" ref="base" />
-		<property name="pointC" ref="height" />
-
+	<bean id="triangle1" class="la.random.spring.shapes.Triangle"
+		parent="parentTriangle">
+		<property name="points">
+			<list>
+				<ref bean="base" />
+			</list>
+		</property>
 	</bean>
 
-	<bean id="triangle2" class="la.random.spring.shapes.Triangle" parent="parentTriangle">
-		<property name="pointC" ref="height" />
-	</bean>
-
-	<bean id="triangle3" class="la.random.spring.shapes.Triangle" parent="parentTriangle">
-		<property name="pointC" ref="height" />
-		<property name="pointA" ref="height" />
+	<bean id="triangle2" class="la.random.spring.shapes.Triangle"
+		parent="parentTriangle">
+		<property name="points">
+			<list merge="true">
+				<ref bean="base" />
+				<ref bean="height" />
+				<ref bean="height" />
+				
+			</list>
+		</property>
 	</bean>
 
 

@@ -1,5 +1,7 @@
 package la.random.spring.shapes;
 
+import java.util.List;
+
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.BeanNameAware;
 import org.springframework.context.ApplicationContext;
@@ -7,35 +9,19 @@ import org.springframework.context.ApplicationContextAware;
 
 public class Triangle extends Shape implements ApplicationContextAware, BeanNameAware {
 	
-	private Point pointA;
-	private Point pointB;
-	private Point pointC;
+	private List <Point> points;
+	
 	
 	private ApplicationContext context;
 	
 	
-	public void setPointA(Point pointA) {
-		this.pointA = pointA;
-	}
-
-	public void setPointB(Point pointB) {
-		this.pointB = pointB;
-	}
-
-	public void setPointC(Point pointC) {
-		this.pointC = pointC;
-	}
-
 	public Triangle(){
 		System.out.println("Triangle()");
 	}
 	
-	public Triangle(Point pointA, Point pointB, Point pointC){
-		this.pointA = pointA;
-		this.pointB = pointB;
-		this.pointC = pointC;
-		
-		System.out.println("Triangle()");
+	public Triangle(List <Point> points){
+		this.points = points;
+		System.out.println("Triangle(points)");
 	}
 	
 	
@@ -43,22 +29,13 @@ public class Triangle extends Shape implements ApplicationContextAware, BeanName
 	public void draw() {
 		System.out.print("Triangle.draw()");
 		System.out.print(" with ");
-		if(pointA == null){
-			System.out.print("A: null");
-		} else {
-			System.out.print("A: " + pointA.toString());
-		}
 
-		if(pointB == null){
-			System.out.print(", B: null");
-		} else {
-			System.out.print(", B: " + pointB.toString());
-		}
-
-		if(pointC == null){
-			System.out.print(", C: null");
-		} else {
-			System.out.print(", C: " + pointC.toString());
+		for(Point p : points){
+			if(p==null){
+				System.out.print("p: null");
+			} else {
+				System.out.print("p: " + p.toString());
+			}
 		}
 		System.out.println(" "  + this.hashCode());
 	}
@@ -76,6 +53,14 @@ public class Triangle extends Shape implements ApplicationContextAware, BeanName
 		System.out.println("Triangle.setBeanName(" + name + ")");
 		
 		
+	}
+
+	public List<Point> getPoints() {
+		return points;
+	}
+
+	public void setPoints(List<Point> points) {
+		this.points = points;
 	}
 	
 	
