@@ -11,9 +11,16 @@ public class Main {
 
 	public static void main(String[] args) {
 		System.out.println("Hello");
-		demo04();
+		demo05();
 	}
-	
+	public static void demo05(){
+		ApplicationContext context= new ClassPathXmlApplicationContext("spring.xml");
+		Triangle triangle = (Triangle)context.getBean("triangle");
+		Drawing drawing = new Drawing();
+		drawing.setShape(triangle);
+		drawing.drawShape();
+		
+	}
 	public static void demo04(){
 		ApplicationContext context= new ClassPathXmlApplicationContext("spring.xml");
 		Triangle triangle = (Triangle)context.getBean("triangle");

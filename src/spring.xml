@@ -3,20 +3,30 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans 
 		http://www.springframework.org/schema/beans/spring-beans.xsd">
-		
+
 	<bean id="triangle" class="la.random.spring.shapes.Triangle">
-		<property name="type" value="equaliteral" />
+		<property name="pointA" ref="origin" />
+		<property name="pointB" ref="hight" />
+		<property name="pointC" ref="base" />
+	
 	</bean>
-	<bean id="circle1" class="la.random.spring.shapes.Circle">
-		<constructor-arg value="red"/>
-		<constructor-arg value="5"/>
+	
+	<bean id="origin" class="la.random.spring.shapes.Point">
+		<property name="x" value="0" />
+		<property name="y" value="0" />
 	</bean>
-	<bean id="circle2" class="la.random.spring.shapes.Circle">
-		<constructor-arg type="int" value="25"/>
+	
+	<bean id="hight" class="la.random.spring.shapes.Point">
+		<property name="x" value="0" />
+		<property name="y" value="4" />
 	</bean>
-	<bean id="circle3" class="la.random.spring.shapes.Circle">
-		<constructor-arg type="String" value="blue"/>
+	
+	<bean id="base" class="la.random.spring.shapes.Point">
+		<property name="x" value="5" />
+		<property name="y" value="0" />
 	</bean>
+	
+	
 
 
 </beans>
