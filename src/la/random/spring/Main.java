@@ -11,9 +11,23 @@ import la.random.spring.shapes.Triangle;
 public class Main {
 
 	public static void main(String[] args) {
-		System.out.println("Hello");
-		demo08();
-		demo09();
+		demo10();
+	}
+	public static void demo10(){
+		ApplicationContext context= new ClassPathXmlApplicationContext("spring.xml");
+		Triangle triangle1 = (Triangle)context.getBean("triangle1");
+		Triangle triangle2 = (Triangle)context.getBean("triangle2");
+		Triangle triangle3 = (Triangle)context.getBean("triangle3");
+		Drawing drawing = new Drawing();
+		
+		drawing.setShape(triangle1);
+		drawing.drawShape();
+		drawing.setShape(triangle2);
+		drawing.drawShape();
+		drawing.setShape(triangle3);
+		drawing.drawShape();
+		
+		
 	}
 	
 	public static void demo09(){

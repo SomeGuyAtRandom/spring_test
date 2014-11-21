@@ -43,10 +43,23 @@ public class Triangle extends Shape implements ApplicationContextAware, BeanName
 	public void draw() {
 		System.out.print("Triangle.draw()");
 		System.out.print(" with ");
-		System.out.print("A: " + pointA.toString());
-		System.out.print(",B: " + pointB.toString());
-		System.out.print(",C: " + pointC.toString());
-		System.out.print(",C: " + pointC.toString());
+		if(pointA == null){
+			System.out.print("A: null");
+		} else {
+			System.out.print("A: " + pointA.toString());
+		}
+
+		if(pointB == null){
+			System.out.print(", B: null");
+		} else {
+			System.out.print(", B: " + pointB.toString());
+		}
+
+		if(pointC == null){
+			System.out.print(", C: null");
+		} else {
+			System.out.print(", C: " + pointC.toString());
+		}
 		System.out.println(" "  + this.hashCode());
 	}
 

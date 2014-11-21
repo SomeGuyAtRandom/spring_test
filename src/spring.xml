@@ -3,24 +3,38 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans 
 		http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<bean id="parentTriangle" class="la.random.spring.shapes.Triangle">
+		<property name="pointA" ref="origin" />
+	</bean>
 
-	<bean id="triangle1" class="la.random.spring.shapes.Triangle"
-		autowire="constructor" scope="singleton" />
+	<bean id="triangle1" class="la.random.spring.shapes.Triangle" parent="parentTriangle">
+		<property name="pointB" ref="base" />
+		<property name="pointC" ref="height" />
 
-	<bean id="triangle2" class="la.random.spring.shapes.Triangle"
-		autowire="byName" scope="prototype" />
+	</bean>
 
-	<bean id="pointB" class="la.random.spring.shapes.Point">
+	<bean id="triangle2" class="la.random.spring.shapes.Triangle" parent="parentTriangle">
+		<property name="pointC" ref="height" />
+	</bean>
+
+	<bean id="triangle3" class="la.random.spring.shapes.Triangle" parent="parentTriangle">
+		<property name="pointC" ref="height" />
+		<property name="pointA" ref="height" />
+	</bean>
+
+
+	<bean id="height" class="la.random.spring.shapes.Point">
 		<property name="x" value="0" />
 		<property name="y" value="11" />
 	</bean>
 
-	<bean id="pointA" class="la.random.spring.shapes.Point">
+	<bean id="origin" class="la.random.spring.shapes.Point">
 		<property name="x" value="0" />
 		<property name="y" value="0" />
 	</bean>
 
-	<bean id="pointC" class="la.random.spring.shapes.Point">
+	<bean id="base" class="la.random.spring.shapes.Point">
 		<property name="x" value="20" />
 		<property name="y" value="0" />
 	</bean>
