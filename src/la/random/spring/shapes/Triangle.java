@@ -38,7 +38,8 @@ public class Triangle extends Shape{
 		System.out.print("A: " + pointA.toString());
 		System.out.print(",B: " + pointB.toString());
 		System.out.print(",C: " + pointC.toString());
-		System.out.println();
+		System.out.print(",C: " + pointC.toString());
+		System.out.println(" "  + this.hashCode());
 	}
 	
 	

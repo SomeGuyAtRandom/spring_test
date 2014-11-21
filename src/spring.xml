@@ -4,25 +4,26 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans 
 		http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-	<bean id="triangle1" class="la.random.spring.shapes.Triangle" autowire="constructor" />
-		
-	<bean id="triangle2" class="la.random.spring.shapes.Triangle" autowire="byName" />
+	<bean id="triangle1" class="la.random.spring.shapes.Triangle"
+		autowire="constructor" scope="singleton" />
 
+	<bean id="triangle2" class="la.random.spring.shapes.Triangle"
+		autowire="byName" scope="prototype" />
+
+	<bean id="pointB" class="la.random.spring.shapes.Point">
+		<property name="x" value="0" />
+		<property name="y" value="11" />
+	</bean>
 
 	<bean id="pointA" class="la.random.spring.shapes.Point">
 		<property name="x" value="0" />
 		<property name="y" value="0" />
 	</bean>
-	
-	<bean id="pointB" class="la.random.spring.shapes.Point">
-		<property name="x" value="0" />
-		<property name="y" value="11" />
-	</bean>
-	
+
 	<bean id="pointC" class="la.random.spring.shapes.Point">
 		<property name="x" value="20" />
 		<property name="y" value="0" />
 	</bean>
-	
+
 
 </beans>
