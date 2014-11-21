@@ -15,7 +15,7 @@ public class Main {
 	}
 	public static void demo05(){
 		ApplicationContext context= new ClassPathXmlApplicationContext("spring.xml");
-		Triangle triangle = (Triangle)context.getBean("triangle");
+		Triangle triangle = (Triangle)context.getBean("RtTriangle");
 		Drawing drawing = new Drawing();
 		drawing.setShape(triangle);
 		drawing.drawShape();
