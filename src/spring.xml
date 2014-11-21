@@ -5,10 +5,18 @@
 		http://www.springframework.org/schema/beans/spring-beans.xsd">
 		
 	<bean id="triangle" class="la.random.spring.shapes.Triangle">
-		<property name="type" value="Equaliteral" />
+		<property name="type" value="equaliteral" />
 	</bean>
-	<bean id="circle" class="la.random.spring.shapes.Circle">
+	<bean id="circle1" class="la.random.spring.shapes.Circle">
+		<constructor-arg value="red"/>
 		<constructor-arg value="5"/>
 	</bean>
+	<bean id="circle2" class="la.random.spring.shapes.Circle">
+		<constructor-arg type="int" value="25"/>
+	</bean>
+	<bean id="circle3" class="la.random.spring.shapes.Circle">
+		<constructor-arg type="String" value="blue"/>
+	</bean>
+
 
 </beans>

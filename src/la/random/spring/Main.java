@@ -15,7 +15,23 @@ public class Main {
 	}
 	
 	public static void demo04(){
-		demo03();
+		ApplicationContext context= new ClassPathXmlApplicationContext("spring.xml");
+		Triangle triangle = (Triangle)context.getBean("triangle");
+		Drawing drawing = new Drawing();
+		drawing.setShape(triangle);
+		drawing.drawShape();
+		System.out.println("done with triangle part....");
+		Circle circle1 = (Circle)context.getBean("circle1");
+		drawing.setShape(circle1);
+		drawing.drawShape();
+		
+		Circle circle2 = (Circle)context.getBean("circle2");
+		drawing.setShape(circle2);
+		drawing.drawShape();
+		
+		Circle circle3 = (Circle)context.getBean("circle3");
+		drawing.setShape(circle3);
+		drawing.drawShape();
 	}
 	public static void demo03(){
 		ApplicationContext context= new ClassPathXmlApplicationContext("spring.xml");
@@ -24,8 +40,7 @@ public class Main {
 		drawing.setShape(triangle);
 		drawing.drawShape();
 		System.out.println("done with triangle part....");
-		
-		Circle circle = (Circle)context.getBean("circle");
+		Circle circle = (Circle)context.getBean("circle1");
 		drawing.setShape(circle);
 		drawing.drawShape();
 		
