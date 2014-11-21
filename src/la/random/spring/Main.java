@@ -14,9 +14,23 @@ public class Main {
 
 	public static void main(String[] args) {
 		System.out.println("Hello");
-		demo02();
+		demo03();
+	}
+	
+	public static void demo03(){
+		ApplicationContext context= new ClassPathXmlApplicationContext("spring.xml");
+		Triangle triangle = (Triangle)context.getBean("triangle");
+		Drawing drawing = new Drawing();
+		drawing.setShape(triangle);
+		drawing.drawShape();
+		System.out.println("done with triangle part....");
 		
+		Circle circle = (Circle)context.getBean("circle");
+		drawing.setShape(circle);
+		drawing.drawShape();
 		
+		// Note the following get error : cannot be cast 
+		// Circle circle = (Circle)context.getBean("triangle");
 		
 	}
 
@@ -24,24 +38,20 @@ public class Main {
 		
 		ApplicationContext context= new ClassPathXmlApplicationContext("spring.xml");
 		Triangle triangle = (Triangle)context.getBean("triangle");
-		
-		
+
 		Drawing drawing = new Drawing();
 		drawing.setShape(triangle);
 		drawing.drawShape();
-		
 	}
 
 	private static void demo01(){
 		// Polymorphic demo
 		Drawing drawing = new Drawing();
 		Triangle triangle = new Triangle();
-		
 		drawing.setShape(triangle);
 		drawing.drawShape();
 		
 		Circle circle = new Circle();
-		
 		drawing.setShape(circle);
 		drawing.drawShape();
 	}
