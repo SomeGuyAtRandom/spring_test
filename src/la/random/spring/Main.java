@@ -5,14 +5,47 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import la.random.spring.shapes.Circle;
 import la.random.spring.shapes.Drawing;
+import la.random.spring.shapes.Polygon;
 import la.random.spring.shapes.Triangle;
 
 public class Main {
 
 	public static void main(String[] args) {
 		System.out.println("Hello");
-		demo05();
+		demo08();
 	}
+	
+	public static void demo08(){
+		ApplicationContext context= new ClassPathXmlApplicationContext("spring.xml");
+		Triangle triangle1 = (Triangle)context.getBean("triangle1");
+		Triangle triangle2 = (Triangle)context.getBean("triangle2");
+		
+		Drawing drawing = new Drawing();
+		drawing.setShape(triangle1);
+		drawing.drawShape();
+		
+		drawing.setShape(triangle2);
+		drawing.drawShape();
+		
+	}
+	
+	public static void demo07(){
+		ApplicationContext context= new ClassPathXmlApplicationContext("spring.xml");
+		Triangle triangle = (Triangle)context.getBean("polygon");
+		Drawing drawing = new Drawing();
+		drawing.setShape(triangle);
+		drawing.drawShape();
+	}
+	
+	
+	public static void demo06(){
+		ApplicationContext context= new ClassPathXmlApplicationContext("spring.xml");
+		Polygon polygon = (Polygon)context.getBean("polygon");
+		Drawing drawing = new Drawing();
+		drawing.setShape(polygon);
+		drawing.drawShape();
+	}
+	
 	public static void demo05(){
 		ApplicationContext context= new ClassPathXmlApplicationContext("spring.xml");
 		Triangle triangle = (Triangle)context.getBean("RtTriangle");

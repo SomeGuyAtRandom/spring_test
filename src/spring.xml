@@ -4,34 +4,25 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans 
 		http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-	<bean id="triangle" class="la.random.spring.shapes.Triangle">
-		<property name="pointA" ref="origin" />
-		<property name="pointB">
-			<bean class="la.random.spring.shapes.Point">
-				<property name="x" value="5" />
-				<property name="y" value="0" />
-			</bean>
-		</property>
-		<property name="pointC">
-			<bean class="la.random.spring.shapes.Point">
-				<property name="x" value="0" />
-				<property name="y" value="4" />
-			</bean>
+	<bean id="triangle1" class="la.random.spring.shapes.Triangle" autowire="constructor" />
+		
+	<bean id="triangle2" class="la.random.spring.shapes.Triangle" autowire="byName" />
 
-		</property>
 
-	</bean>
-
-	<bean id="origin" class="la.random.spring.shapes.Point">
+	<bean id="pointA" class="la.random.spring.shapes.Point">
 		<property name="x" value="0" />
 		<property name="y" value="0" />
 	</bean>
 	
-	<alias name="triangle" alias="RtTriangle"/>
-
-
-
-
-
+	<bean id="pointB" class="la.random.spring.shapes.Point">
+		<property name="x" value="0" />
+		<property name="y" value="11" />
+	</bean>
+	
+	<bean id="pointC" class="la.random.spring.shapes.Point">
+		<property name="x" value="20" />
+		<property name="y" value="0" />
+	</bean>
+	
 
 </beans>

@@ -22,6 +22,15 @@ public class Triangle extends Shape{
 		System.out.println("Triangle()");
 	}
 	
+	public Triangle(Point pointA, Point pointB, Point pointC){
+		this.pointA = pointA;
+		this.pointB = pointB;
+		this.pointC = pointC;
+		
+		System.out.println("Triangle()");
+	}
+	
+	
 	@Override
 	public void draw() {
 		System.out.print("Triangle.draw()");
