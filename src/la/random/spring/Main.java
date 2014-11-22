@@ -14,13 +14,21 @@ import la.random.spring.shapes.Triangle;
 public class Main {
 
 	public static void main(String[] args) {
-		demo12();
+		demo13();
+	}
+	
+	public static void demo13(){
+		ApplicationContext context= new ClassPathXmlApplicationContext("spring.xml");
+		Rectangle rectangle = (Rectangle)context.getBean("rectangle");
+		rectangle.draw();
 	}
 	
 	public static void demo12(){
 		
 		AbstractApplicationContext context= new ClassPathXmlApplicationContext("spring.xml");
 		context.registerShutdownHook();
+		
+		
 		Rectangle rectangle = (Rectangle)context.getBean("rectangle");
 		
 		Drawing drawing = new Drawing();

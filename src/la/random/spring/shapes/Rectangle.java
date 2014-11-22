@@ -1,6 +1,9 @@
 package la.random.spring.shapes;
 
-public class Rectangle extends Shape{
+import org.springframework.beans.factory.DisposableBean;
+import org.springframework.beans.factory.InitializingBean;
+
+public class Rectangle extends Shape implements InitializingBean , DisposableBean{
 	
 	private Point diangle;
 	
@@ -14,7 +17,7 @@ public class Rectangle extends Shape{
 	
 	@Override
 	public void draw(){
-		System.out.println("Rectangle.draw()");
+		System.out.println("Rectangle.draw() @ point: " + diangle.toString() + "");
 	}
 	
 	public Point getDiangle() {
@@ -25,12 +28,33 @@ public class Rectangle extends Shape{
 		this.diangle = diangle;
 	}
 
-	public void init(){
-		System.out.println("Rectangle.init()");
+	public void destroyMethod(){
+		System.out.println("Rectangle.destroyMethod()");
 	}
+	
+	public void initMethod(){
+		System.out.println("Rectangle.initMethod()");
+	}
+	
+	public void defaultInitMethod(){
+		System.out.println("Rectangle.defaultInitMethod()");
+	}
+	
+	
+	public void defaultDestroyMethod(){
+		System.out.println("Rectangle.defaultDestroyMethod()");
+	}
+	
+	
 	
 	@Override
 	public void destroy() throws Exception{
 		System.out.println("Rectangle.destroy()");
+	}
+
+	@Override
+	public void afterPropertiesSet() throws Exception {
+		System.out.println("Rectangle.afterPropertiesSet()");
+		
 	}
 }

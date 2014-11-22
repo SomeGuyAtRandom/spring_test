@@ -3,15 +3,25 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans 
 		http://www.springframework.org/schema/beans/spring-beans.xsd"
-	default-init-method="init" default-destroy-method="destroy">
+	default-init-method="defaultInitMethod" default-destroy-method="defaultDestroyMethod">
 
-	<bean id="rectangle" class="la.random.spring.shapes.Rectangle">
+	<bean id="rectangle" class="la.random.spring.shapes.Rectangle" init-method="initMethod" destroy-method="destroyMethod">
 		<property name="diangle" ref="point" />
 	</bean>
 
 	<bean id="point" class="la.random.spring.shapes.Point">
-		<property name="x" value="5" />
-		<property name="y" value="4" />
+		<property name="x" value="${pointA.pointX}" />
+		<property name="y" value="${pointA.pointY}" />
 	</bean>
+	
+	
+	
+	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations" value="pointsconfig.properties" />
+	</bean>
+	
+	<bean class="la.random.spring.shapes.BeanPostProc"/> 
+	
+	<bean class="la.random.spring.shapes.BeanFactoryPostProc"/>
 
 </beans>
