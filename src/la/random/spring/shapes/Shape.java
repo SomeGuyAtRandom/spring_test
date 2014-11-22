@@ -9,5 +9,10 @@ public class Shape {
 	public void draw(){
 		System.out.println("Shape.draw()");
 	}
+	
+	public void destroy() throws Exception{
+		System.out.println("Shape.destroy()");
+	}
+
 
 }

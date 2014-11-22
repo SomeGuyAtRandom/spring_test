@@ -2,11 +2,13 @@ package la.random.spring.shapes;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.BeanNameAware;
+import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 
-public class Triangle extends Shape implements ApplicationContextAware, BeanNameAware, InitializingBean{
+public class Triangle extends Shape implements ApplicationContextAware, 
+										BeanNameAware, InitializingBean, DisposableBean{
 
 	private Point pointA;
 	private Point pointB;
@@ -14,10 +16,11 @@ public class Triangle extends Shape implements ApplicationContextAware, BeanName
 	private ApplicationContext applicationContext;
 	
 	public Triangle(){
-		
+		System.out.println("Triangle()");
 	}
 
 	public Triangle( Point pointA,  Point pointB,  Point pointC){
+		System.out.println("Triangle(A,B,C)");
 		this.pointA = pointA;
 		this.pointB = pointB;
 		this.pointC = pointC;
@@ -48,19 +51,20 @@ public class Triangle extends Shape implements ApplicationContextAware, BeanName
 	
 	@Override
 	public void afterPropertiesSet() throws Exception {
-		// TODO Auto-generated method stub
+		System.out.println("Triangle.afterPropertiesSet()");
 		
 	}
 
 	@Override
 	public void setBeanName(String name) {
-		// TODO Auto-generated method stub
+		System.out.println("Triangle.setBeanName(" + name +")");
 		
 	}
 
 	@Override
 	public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
 		this.applicationContext = applicationContext;
+		System.out.println("Triangle.setApplicationContext()");
 	}
 
 	public Point getPointA() {
@@ -89,6 +93,12 @@ public class Triangle extends Shape implements ApplicationContextAware, BeanName
 
 	public ApplicationContext getApplicationContext() {
 		return applicationContext;
+	}
+
+	@Override
+	public void destroy() throws Exception {
+		System.out.println("Triangle.destroy()");
+		
 	}
 
 }

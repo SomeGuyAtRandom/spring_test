@@ -2,28 +2,16 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans 
-		http://www.springframework.org/schema/beans/spring-beans.xsd">
+		http://www.springframework.org/schema/beans/spring-beans.xsd"
+	default-init-method="init" default-destroy-method="destroy">
 
-	<bean id="triangle" class="la.random.spring.shapes.Triangle">
-		<property name="pointA" ref="height" />
-		<property name="pointB" ref="origin" />
-		<property name="pointC" ref="base" />
+	<bean id="rectangle" class="la.random.spring.shapes.Rectangle">
+		<property name="diangle" ref="point" />
 	</bean>
 
-	<bean id="height" class="la.random.spring.shapes.Point">
-		<property name="x" value="0" />
-		<property name="y" value="11" />
+	<bean id="point" class="la.random.spring.shapes.Point">
+		<property name="x" value="5" />
+		<property name="y" value="4" />
 	</bean>
-
-	<bean id="origin" class="la.random.spring.shapes.Point">
-		<property name="x" value="0" />
-		<property name="y" value="0" />
-	</bean>
-
-	<bean id="base" class="la.random.spring.shapes.Point">
-		<property name="x" value="20" />
-		<property name="y" value="0" />
-	</bean>
-
 
 </beans>

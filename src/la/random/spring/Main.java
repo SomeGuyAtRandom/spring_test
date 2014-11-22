@@ -8,14 +8,27 @@ import la.random.spring.shapes.Circle;
 import la.random.spring.shapes.Drawing;
 import la.random.spring.shapes.Polygon;
 import la.random.spring.shapes.Polygon;
+import la.random.spring.shapes.Rectangle;
 import la.random.spring.shapes.Triangle;
 
 public class Main {
 
 	public static void main(String[] args) {
-		demo11();
+		demo12();
 	}
 	
+	public static void demo12(){
+		
+		AbstractApplicationContext context= new ClassPathXmlApplicationContext("spring.xml");
+		context.registerShutdownHook();
+		Rectangle rectangle = (Rectangle)context.getBean("rectangle");
+		
+		Drawing drawing = new Drawing();
+		drawing.setShape(rectangle);
+		drawing.drawShape();
+		
+		
+	}
 	public static void demo11(){
 		AbstractApplicationContext context= new ClassPathXmlApplicationContext("spring.xml");
 		context.registerShutdownHook();
