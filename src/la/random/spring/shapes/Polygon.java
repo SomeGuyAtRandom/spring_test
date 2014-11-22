@@ -8,7 +8,7 @@ import org.springframework.beans.factory.InitializingBean;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 
-public class Polygon extends Shape implements ApplicationContextAware, BeanNameAware, InitializingBean {
+public class Polygon implements Shape, ApplicationContextAware, BeanNameAware, InitializingBean {
 	
 	private List <Point> points;
 	private ApplicationContext context;

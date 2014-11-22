@@ -3,7 +3,7 @@ package la.random.spring.shapes;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
 
-public class Rectangle extends Shape implements InitializingBean , DisposableBean{
+public class Rectangle implements Shape, InitializingBean , DisposableBean{
 	
 	private Point diangle;
 	

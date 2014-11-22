@@ -13,15 +13,11 @@
 		<property name="x" value="${pointA.pointX}" />
 		<property name="y" value="${pointA.pointY}" />
 	</bean>
-	
-	
-	
 	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="locations" value="pointsconfig.properties" />
 	</bean>
 	
 	<bean class="la.random.spring.shapes.BeanPostProc"/> 
-	
 	<bean class="la.random.spring.shapes.BeanFactoryPostProc"/>
 
 </beans>
