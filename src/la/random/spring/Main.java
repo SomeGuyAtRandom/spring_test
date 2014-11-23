@@ -8,6 +8,7 @@ import la.random.spring.shapes.Circle;
 import la.random.spring.shapes.Drawing;
 import la.random.spring.shapes.Polygon;
 import la.random.spring.shapes.Polygon;
+import la.random.spring.shapes.Shape;
 import la.random.spring.shapes.Vector;
 import la.random.spring.shapes.Triangle;
 
@@ -27,9 +28,22 @@ public class Main {
 		// demo10_lifecycle();
 		// demo08_application_context();
 		// demo11_bean_postProcessor();
-		demo12_bean_postProcessor();
+		// demo12_bean_postProcessor();
+		demo13();
+		
 		
 	}
+	
+	private static void demo13(){
+		ApplicationContext context = new ClassPathXmlApplicationContext("spring-15.xml");
+		
+		Shape obj;
+		obj = (Triangle) context.getBean("triangle");
+		obj.draw();
+		obj = (Circle) context.getBean("circle");
+		obj.draw();
+	}
+	
 	
 	private static void demo12_bean_postProcessor(){
 		ApplicationContext context = new ClassPathXmlApplicationContext("spring-15.xml");
