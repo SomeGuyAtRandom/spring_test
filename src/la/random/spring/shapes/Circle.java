@@ -16,9 +16,8 @@ public class Circle implements Shape{
 		System.out.println("Circle(radius)");
 	}
 	
-	public Circle(String color, double radius){
-		this.radius = radius;
-		System.out.println("Circle(color, radius)");
+	public Circle(Point center){
+		System.out.println("Circle(center)");
 	}
 	
 
@@ -28,9 +27,25 @@ public class Circle implements Shape{
 		System.out.print(" with ");
 		System.out.print("radius " + radius);
 		System.out.print(" and ");
-		System.out.print("center " + center.toString());
+		if(center==null){
+			System.out.print("center null");
+		} else {
+			System.out.print("center " + center.toString());
+		}
 		System.out.println(" "  + this.hashCode());
 		
+	}
+	public double getRadius() {
+		return radius;
+	}
+	public void setRadius(double radius) {
+		this.radius = radius;
+	}
+	public Point getCenter() {
+		return center;
+	}
+	public void setCenter(Point center) {
+		this.center = center;
 	}
 
 }

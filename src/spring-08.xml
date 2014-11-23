@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="circle" class="la.random.spring.shapes.Circle">
+		<property name="center" ref="origin" />
+	</bean>
+
+
+	<bean id="origin" class="la.random.spring.shapes.Point">
+		<property name="x" value="0" />
+		<property name="y" value="0" />
+	</bean>
+
+	<bean id="triangle" class="la.random.spring.shapes.Triangle"
+		autowire="byName" />
+
+
+	<bean id="pointB" class="la.random.spring.shapes.Point">
+		<constructor-arg index="0" value="6" />
+		<constructor-arg index="1" value="0" />
+	</bean>
+
+	<bean id="pointC" class="la.random.spring.shapes.Point" name="pointName">
+		<constructor-arg type="double" value="6" />
+		<constructor-arg type="double" value="8" />
+	</bean>
+
+	<alias name="origin" alias="pointA" />
+
+
+	<bean id="vector" class="la.random.spring.shapes.Vector">
+		<property name="diangle">
+			<bean class="la.random.spring.shapes.Point">
+				<constructor-arg type="double" value="3" />
+				<constructor-arg type="double" value="4" />
+			</bean>
+
+		</property>
+	</bean>
+
+	<bean id="vector2" class="la.random.spring.shapes.Vector">
+		<constructor-arg  ref="pointName" />
+	</bean>
+
+
+</beans>

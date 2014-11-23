@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="square" class="la.random.spring.shapes.Polygon">
+		<property name="points">
+			<list>
+				<ref bean="origin" />
+				<ref bean="width" />
+				<ref bean="cross-ray" />
+				<ref bean="height" />
+			</list>
+
+		</property>
+	</bean>
+
+	<bean id="origin" class="la.random.spring.shapes.Point">
+		<property name="x" value="0" />
+		<property name="y" value="0" />
+	</bean>
+
+	<bean id="diangle" class="la.random.spring.shapes.Point" name="cross-ray">
+		<property name="x" value="5" />
+		<property name="y" value="5" />
+	</bean>
+
+	<bean id="y-axis" class="la.random.spring.shapes.Point">
+		<property name="x" value="0" />
+		<property name="y" value="5" />
+	</bean>
+	
+	<bean id="x-axis" class="la.random.spring.shapes.Point">
+		<property name="x" value="5" />
+		<property name="y" value="0" />
+	</bean>
+	
+	<alias name="y-axis" alias="height" />
+	<alias name="x-axis" alias="width" />
+
+</beans>

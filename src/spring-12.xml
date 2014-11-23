@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+	default-init-method="defaultInitMethod" default-destroy-method="defaultDestroyMethod">
+
+		
+	<bean id="triangle" class="la.random.spring.shapes.Triangle"
+		autowire="byName" init-method="initMethod" destroy-method="destroyMethod" />
+
+	<bean id="pointA" class="la.random.spring.shapes.Point">
+		<property name="x" value="0" />
+		<property name="y" value="0" />
+	</bean>
+	
+	<bean id="pointB" class="la.random.spring.shapes.Point">
+		<constructor-arg index="0" value="6" />
+		<constructor-arg index="1" value="0" />
+	</bean>
+
+	<bean id="pointC" class="la.random.spring.shapes.Point" name="pointName">
+		<constructor-arg type="double" value="6" />
+		<constructor-arg type="double" value="8" />
+	</bean>
+
+</beans>

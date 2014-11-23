@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="circle" class="la.random.spring.shapes.Circle" autowire="byType" scope="prototype"/>
+	
+	<!-- Not sure how to make this work : autowire="constructor" -->
+	<bean id="circle2" class="la.random.spring.shapes.Circle" autowire="constructor">
+		<constructor-arg ref="origin" />
+	</bean>
+	
+	<bean id="origin" class="la.random.spring.shapes.Point">
+		<property name="x" value="0" />
+		<property name="y" value="0" />
+	</bean>
+
+</beans>

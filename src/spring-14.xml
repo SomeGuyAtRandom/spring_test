@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="vector" class="la.random.spring.shapes.Vector" autowire="byName" />
+
+	<bean id="diangle" class="la.random.spring.shapes.Point">
+		<property name="x" value="3" />
+		<property name="y" value="4" />
+	</bean>
+	
+	<bean class="la.random.spring.shapes.BeanPostProc"/> 
+	<bean class="la.random.spring.shapes.BeanFactoryPostProc"/>
+
+</beans>

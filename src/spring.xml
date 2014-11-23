@@ -5,9 +5,7 @@
 		http://www.springframework.org/schema/beans/spring-beans.xsd"
 	default-init-method="defaultInitMethod" default-destroy-method="defaultDestroyMethod">
 
-	<bean id="rectangle" class="la.random.spring.shapes.Rectangle" init-method="initMethod" destroy-method="destroyMethod">
-		<property name="diangle" ref="point" />
-	</bean>
+	
 
 	<bean id="point" class="la.random.spring.shapes.Point">
 		<property name="x" value="${pointA.pointX}" />

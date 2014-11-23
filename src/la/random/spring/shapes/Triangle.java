@@ -7,8 +7,8 @@ import org.springframework.beans.factory.InitializingBean;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 
-public class Triangle implements Shape, ApplicationContextAware, 
-										BeanNameAware, InitializingBean, DisposableBean{
+public class Triangle implements Shape, BeanNameAware, InitializingBean, ApplicationContextAware, 
+										 DisposableBean{
 
 	private Point pointA;
 	private Point pointB;
@@ -42,30 +42,13 @@ public class Triangle implements Shape, ApplicationContextAware,
 			System.out.print(", B: " + pointB.toString());
 		}
 		if(pointC==null){
-			System.out.print("C: null");
+			System.out.print(", C: null");
 		}else {
 			System.out.print(", C: " + pointC.toString());
 		}
 		System.out.println(" "  + this.hashCode());
 	}
 	
-	@Override
-	public void afterPropertiesSet() throws Exception {
-		System.out.println("Triangle.afterPropertiesSet()");
-		
-	}
-
-	@Override
-	public void setBeanName(String name) {
-		System.out.println("Triangle.setBeanName(" + name +")");
-		
-	}
-
-	@Override
-	public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-		this.applicationContext = applicationContext;
-		System.out.println("Triangle.setApplicationContext()");
-	}
 
 	public Point getPointA() {
 		return pointA;
@@ -95,10 +78,49 @@ public class Triangle implements Shape, ApplicationContextAware,
 		return applicationContext;
 	}
 
+	// DisposableBean
 	@Override
 	public void destroy() throws Exception {
 		System.out.println("Triangle.destroy()");
 		
+	}
+	
+	
+	// BeanNameAware
+	@Override
+	public void setBeanName(String name) {
+		System.out.println("Triangle.setBeanName(" + name +")");
+		
+	}
+	
+	// ApplicationContextAware
+	@Override
+	public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+		this.applicationContext = applicationContext;
+		System.out.println("Triangle.setApplicationContext()");
+	}
+	
+	// InitializingBean
+	@Override
+	public void afterPropertiesSet() throws Exception {
+		System.out.println("Triangle.afterPropertiesSet()");
+		
+	}
+	
+	public void defaultInitMethod(){
+		System.out.println("Triangle.defaultInitMethod()");
+	}
+
+	public void defaultDestroyMethod(){
+		System.out.println("Triangle.defaultDestroyMethod()");
+	}
+
+	public void initMethod(){
+		System.out.println("Triangle.initMethod()");
+	}
+
+	public void destroyMethod(){
+		System.out.println("Triangle.destroyMethod()");
 	}
 
 }

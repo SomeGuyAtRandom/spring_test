@@ -8,6 +8,16 @@
 	<enableImports><![CDATA[false]]></enableImports>
 	<configs>
 		<config>src/spring.xml</config>
+		<config>src/spring-02.xml</config>
+		<config>src/spring-05.xml</config>
+		<config>src/spring-06.xml</config>
+		<config>src/spring-08.xml</config>
+		<config>src/spring-09.xml</config>
+		<config>src/spring-10.xml</config>
+		<config>src/spring-12.xml</config>
+		<config>src/spring-13.xml</config>
+		<config>src/spring-14.xml</config>
+		<config>src/spring-15.xml</config>
 	</configs>
 	<autoconfigs>
 	</autoconfigs>

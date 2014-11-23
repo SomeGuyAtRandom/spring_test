@@ -8,14 +8,12 @@ import org.springframework.beans.factory.InitializingBean;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 
-public class Polygon implements Shape, ApplicationContextAware, BeanNameAware, InitializingBean {
+public class Polygon {
 	
 	private List <Point> points;
-	private ApplicationContext context;
-	
 	
 	public Polygon(){
-		System.out.println("Triangle()");
+		System.out.println("Polygon()");
 	}
 	
 	public Polygon(List <Point> points){
@@ -24,7 +22,6 @@ public class Polygon implements Shape, ApplicationContextAware, BeanNameAware, I
 	}
 	
 	
-	@Override
 	public void draw() {
 		System.out.print("Polygon.draw()");
 		System.out.print(" with ");
@@ -39,22 +36,6 @@ public class Polygon implements Shape, ApplicationContextAware, BeanNameAware, I
 		System.out.println(" "  + this.hashCode());
 	}
 
-	// ApplicationContextAware
-	@Override
-	public void setApplicationContext(ApplicationContext context) throws BeansException {
-		// TODO Auto-generated method stub
-		System.out.println("Polygon.setApplicationContext()");
-		this.context = context;
-	}
-
-	// BeanNameAware
-	@Override
-	public void setBeanName(String name) {
-		// TODO Auto-generated method stub
-		System.out.println("Polygon.setBeanName(" + name + ")");
-		
-		
-	}
 
 	public List<Point> getPoints() {
 		return points;
@@ -63,15 +44,5 @@ public class Polygon implements Shape, ApplicationContextAware, BeanNameAware, I
 	public void setPoints(List<Point> points) {
 		this.points = points;
 	}
-
-	
-	// InitializingBean
-	@Override
-	public void afterPropertiesSet() throws Exception {
-		System.out.println("Polygon.afterPropertiesSet()");
-	}
-	
-	
-
 
 }
