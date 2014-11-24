@@ -15,22 +15,33 @@ import la.random.spring.shapes.Triangle;
 public class Main {
 
 	public static void main(String[] args) {
-		// demo00_old_school();
-		// demo01_intro_drawing_obj();
-		// demo02_spring_xml();
-		// demo03_spring_xml_value_set();
-		// demo04_constructor_injection();
-		// demo05_autowire();
-		// demo06_collections();
-		// demo07_autowire_byType();
-		// demo08_application_context();
-		// demo09_parent_bean();
-		// demo10_lifecycle();
-		// demo08_application_context();
-		// demo11_bean_postProcessor();
-		// demo12_bean_postProcessor();
-		demo13();
+//		demo00_old_school();
+//		demo01_intro_drawing_obj();
+//		demo02_spring_xml();
+//		demo03_spring_xml_value_set();
+//		demo04_constructor_injection();
+//		demo05_autowire();
+//		demo06_collections();
+//		demo07_autowire_byType();
+//		demo08_application_context();
+//		demo09_parent_bean();
+//		demo10_lifecycle();
+//		demo08_application_context();
+//		demo11_bean_postProcessor();
+//		demo12_bean_postProcessor();
+//		demo13();
+		demo14();
 		
+		
+	}
+	private static void demo14(){
+		ApplicationContext context = new ClassPathXmlApplicationContext("spring-18.xml");
+		
+		
+		Circle obj = (Circle) context.getBean("circle");
+		obj.draw();
+		System.out.println(" END - demo14 ");
+
 		
 	}
 	
@@ -42,6 +53,8 @@ public class Main {
 		obj.draw();
 		obj = (Circle) context.getBean("circle");
 		obj.draw();
+		System.out.println(" END - demo13 ");
+
 	}
 	
 	
@@ -49,7 +62,7 @@ public class Main {
 		ApplicationContext context = new ClassPathXmlApplicationContext("spring-15.xml");
 		Triangle triangle = (Triangle) context.getBean("triangle");
 		triangle.draw();
-		
+		System.out.println(" END - demo12 ");
 		
 	}
 	
@@ -57,14 +70,19 @@ public class Main {
 		ApplicationContext context = new ClassPathXmlApplicationContext("spring-14.xml");
 		Vector vector = (Vector) context.getBean("vector");
 		vector.draw();
+		System.out.println(" END - demo11 ");
+
 		
 		
 	}
 	private static void demo10_lifecycle(){
-		AbstractApplicationContext context = new ClassPathXmlApplicationContext("spring-14.xml");
+		AbstractApplicationContext context = new ClassPathXmlApplicationContext("spring-12.xml");
 		context.registerShutdownHook();
 		Triangle triangle = (Triangle) context.getBean("triangle");
 		triangle.draw();
+		System.out.println(" END - demo10 ");
+		context.close();
+
 		
 	}
 	
@@ -80,6 +98,10 @@ public class Main {
 		triangle2.draw();
 		triangle3.draw();
 		triangle4.draw();
+		
+		System.out.println(" END - demo09 ");
+
+		
 	}
 	
 	private static void demo08_application_context(){
@@ -87,6 +109,8 @@ public class Main {
 		ApplicationContext context = new ClassPathXmlApplicationContext("spring-12.xml");
 		Triangle triangle = (Triangle) context.getBean("triangle");
 		triangle.draw();
+		System.out.println(" END - demo08 ");
+
 	}
 	
 	private static void demo07_autowire_byType(){
@@ -95,12 +119,15 @@ public class Main {
 		circle.draw();
 		Circle circle2 = (Circle) context.getBean("circle2");
 		circle2.draw();
+		System.out.println(" END - demo07 ");
 	}
 
 	private static void demo06_collections(){
 		ApplicationContext context = new ClassPathXmlApplicationContext("spring-09.xml");
 		Polygon polygon = (Polygon) context.getBean("square");
 		polygon.draw();
+		System.out.println(" END - demo06 ");
+
 	}
 
 	private static void demo05_autowire(){
@@ -116,6 +143,8 @@ public class Main {
 		
 		Vector vector2 = (Vector) context.getBean("vector2");
 		vector2.draw();
+		System.out.println(" END - demo05 ");
+
 		
 	}
 
@@ -126,6 +155,8 @@ public class Main {
 		
 		Triangle triangle = (Triangle) context.getBean("triangle");
 		triangle.draw();
+		System.out.println(" END - demo04 ");
+
 		
 	}
 
@@ -133,6 +164,8 @@ public class Main {
 		ApplicationContext context = new ClassPathXmlApplicationContext("spring-05.xml");
 		Triangle triangle = (Triangle) context.getBean("triangle");
 		triangle.draw();
+		System.out.println(" END - demo03 ");
+
 	}
 
 	private static void demo02_spring_xml() {
@@ -140,6 +173,8 @@ public class Main {
 		ApplicationContext context = new ClassPathXmlApplicationContext("spring-02.xml");
 		Triangle triangle = (Triangle) context.getBean("triangle");
 		triangle.draw();
+		System.out.println(" END - demo02 ");
+
 	}
 
 	private static void demo01_intro_drawing_obj() {
@@ -153,6 +188,8 @@ public class Main {
 
 		drawing.setShape(circle);
 		drawing.drawShape();
+		System.out.println(" END - demo01 ");
+
 	}
 
 	private static void demo00_old_school() {
@@ -161,6 +198,7 @@ public class Main {
 
 		circle.draw();
 		triangle.draw();
+		System.out.println(" END - demo00 ");
 
 	}
 

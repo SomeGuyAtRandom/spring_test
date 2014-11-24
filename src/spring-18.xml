@@ -2,16 +2,13 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<bean id="circle" class="la.random.spring.shapes.Circle" autowire="byName">
 
-
-	<bean id="triangle" class="la.random.spring.shapes.Triangle" autowire="byName" />
-
-	<bean id="circle" class="la.random.spring.shapes.Circle">
-		<constructor-arg ref="pointA" />
 	</bean>
 
 
-	<bean id="pointA" class="la.random.spring.shapes.Point">
+	<bean id="center" class="la.random.spring.shapes.Point">
 		<property name="x" value="0" />
 		<property name="y" value="0" />
 	</bean>
@@ -25,6 +22,7 @@
 		<constructor-arg index="0" value="6" />
 		<constructor-arg index="1" value="0" />
 	</bean>
-
+	
+	<bean  class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor" />
 
 </beans>

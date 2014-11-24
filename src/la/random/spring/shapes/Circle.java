@@ -1,5 +1,7 @@
 package la.random.spring.shapes;
 
+import org.springframework.beans.factory.annotation.Required;
+
 public class Circle implements Shape{
 	
 	private double radius;
@@ -44,6 +46,8 @@ public class Circle implements Shape{
 	public Point getCenter() {
 		return center;
 	}
+	
+	@Required
 	public void setCenter(Point center) {
 		this.center = center;
 	}

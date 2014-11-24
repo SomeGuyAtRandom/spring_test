@@ -5,7 +5,7 @@ public class Point {
 	private double y;
 	
 	public Point(){
-		// System.out.println("Point()");
+		System.out.println("Point()");
 	}
 	
 	public Point(double x, double y){
