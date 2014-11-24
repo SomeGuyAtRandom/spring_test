@@ -31,10 +31,23 @@ public class Main {
 //		demo12_bean_postProcessor();
 //		demo13();
 //		demo14();
-		demo15_anotation_autowire();
+//		demo15_anotation_autowire();
+		demo16_JSR_250();
 		
 		
 	}
+
+	private static void demo16_JSR_250(){
+		
+		AbstractApplicationContext context = new ClassPathXmlApplicationContext("spring-19.xml");
+		context.registerShutdownHook();
+		Circle obj = (Circle) context.getBean("circle");
+		obj.draw();
+		System.out.println(" END - demo15 ");
+		
+	}
+	
+	
 	private static void demo15_anotation_autowire(){
 		ApplicationContext context = new ClassPathXmlApplicationContext("spring-19.xml");
 		Circle obj = (Circle) context.getBean("circle");
@@ -44,12 +57,9 @@ public class Main {
 	
 	private static void demo14(){
 		ApplicationContext context = new ClassPathXmlApplicationContext("spring-18.xml");
-		
-		
 		Circle obj = (Circle) context.getBean("circle");
 		obj.draw();
 		System.out.println(" END - demo14 ");
-
 		
 	}
 	
@@ -203,7 +213,6 @@ public class Main {
 	private static void demo00_old_school() {
 		Triangle triangle = new Triangle();
 		Circle circle = new Circle();
-
 		circle.draw();
 		triangle.draw();
 		System.out.println(" END - demo00 ");

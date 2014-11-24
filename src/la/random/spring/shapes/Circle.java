@@ -1,5 +1,9 @@
 package la.random.spring.shapes;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+import javax.annotation.Resource;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 
@@ -51,10 +55,23 @@ public class Circle implements Shape{
 	}
 	
 	// @Required - for demo 18
-	@Autowired
-	@Qualifier("circleRelated")
+	//@Autowired
+	//@Qualifier("circleRelated")
+	// tutorial 20
+	@Resource(name="pointA")
 	public void setCenter(Point center) {
 		this.center = center;
 	}
+	
+	@PostConstruct
+	public void initializeCircle(){
+		System.out.println("Circle.initializeCircle()");
+	}
+	
+	@PreDestroy
+	public void distroyCircle(){
+		System.out.println("Circle.distroyCircle()");
+	}
+	
 
 }

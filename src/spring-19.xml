@@ -16,7 +16,7 @@
 		<constructor-arg type="double" value="8" />
 	</bean>
 
-	<bean id="pointC" class="la.random.spring.shapes.Point">
+	<bean id="center" class="la.random.spring.shapes.Point">
 		<constructor-arg index="0" value="6" />
 		<constructor-arg index="1" value="0" />
 	</bean>
