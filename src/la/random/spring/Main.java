@@ -33,8 +33,19 @@ public class Main {
 //		demo14();
 //		demo15_anotation_autowire();
 //		demo16_JSR_250();
-		demo17();
+//		demo17();
+		demo18();
 		
+		
+	}
+	private static void demo18(){
+		AbstractApplicationContext context = new ClassPathXmlApplicationContext("spring-21.xml");
+		
+		Shape obj = (Shape) context.getBean("circle");
+		obj.draw();
+		String msg = context.getMessage("greeting", null,"default-msg",null);
+		System.out.println(msg);
+		System.out.println(" END - demo18 ");
 		
 	}
 	

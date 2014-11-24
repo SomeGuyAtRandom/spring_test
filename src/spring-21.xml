@@ -19,6 +19,15 @@
 		<constructor-arg index="0" value="6" />
 		<constructor-arg index="1" value="0" />
 	</bean>
+	
+	
+	<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basenames">
+			<list>
+				<value>messages</value>
+			</list>
+		</property>
+	</bean>
 
 	<context:annotation-config />
 	<context:component-scan base-package="la.random.spring.shapes"/>
