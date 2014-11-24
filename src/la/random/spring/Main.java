@@ -32,10 +32,20 @@ public class Main {
 //		demo13();
 //		demo14();
 //		demo15_anotation_autowire();
-		demo16_JSR_250();
+//		demo16_JSR_250();
+		demo17();
 		
 		
 	}
+	
+	private static void demo17(){
+		AbstractApplicationContext context = new ClassPathXmlApplicationContext("spring-21.xml");
+		context.registerShutdownHook();
+		Shape obj = (Shape) context.getBean("circle");
+		obj.draw();
+		System.out.println(" END - demo17 ");
+	}
+	
 
 	private static void demo16_JSR_250(){
 		

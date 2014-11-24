@@ -19,6 +19,7 @@
 		<config>src/spring-12.xml</config>
 		<config>src/spring-15.xml</config>
 		<config>src/spring-19.xml</config>
+		<config>src/spring-21.xml</config>
 	</configs>
 	<autoconfigs>
 	</autoconfigs>

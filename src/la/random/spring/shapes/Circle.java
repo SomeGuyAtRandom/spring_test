@@ -4,9 +4,16 @@ import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.annotation.Resource;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
+//  Types 
+// @Component //generic..
+// @Service
+// @Repository
+@Controller
 public class Circle implements Shape{
 	
 	private double radius;
@@ -54,7 +61,7 @@ public class Circle implements Shape{
 		return center;
 	}
 	
-	// @Required - for demo 18
+	//@Required - for demo 18
 	//@Autowired
 	//@Qualifier("circleRelated")
 	// tutorial 20
