@@ -1,6 +1,7 @@
 package la.random.spring.shapes;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 
 public class Circle implements Shape{
 	
@@ -51,6 +52,7 @@ public class Circle implements Shape{
 	
 	// @Required - for demo 18
 	@Autowired
+	@Qualifier("circleRelated")
 	public void setCenter(Point center) {
 		this.center = center;
 	}
