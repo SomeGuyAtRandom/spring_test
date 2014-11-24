@@ -30,10 +30,18 @@ public class Main {
 //		demo11_bean_postProcessor();
 //		demo12_bean_postProcessor();
 //		demo13();
-		demo14();
+//		demo14();
+		demo15_anotation_autowire();
 		
 		
 	}
+	private static void demo15_anotation_autowire(){
+		ApplicationContext context = new ClassPathXmlApplicationContext("spring-19.xml");
+		Circle obj = (Circle) context.getBean("circle");
+		obj.draw();
+		System.out.println(" END - demo15 ");
+	}
+	
 	private static void demo14(){
 		ApplicationContext context = new ClassPathXmlApplicationContext("spring-18.xml");
 		

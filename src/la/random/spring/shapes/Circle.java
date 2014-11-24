@@ -1,6 +1,6 @@
 package la.random.spring.shapes;
 
-import org.springframework.beans.factory.annotation.Required;
+import org.springframework.beans.factory.annotation.Autowired;
 
 public class Circle implements Shape{
 	
@@ -12,11 +12,13 @@ public class Circle implements Shape{
 		System.out.println("Circle()");
 		
 	}
-	public Circle(double radius){
-		this.radius = radius;
-		this.center = new Point(0.0d,0.0d);
-		System.out.println("Circle(radius)");
-	}
+	
+//	public Circle(double radius){
+//		this.radius = radius;
+//		this.center = new Point(0.0d,0.0d);
+//		System.out.println("Circle(radius)");
+//	}
+	
 	
 	public Circle(Point center){
 		System.out.println("Circle(center)");
@@ -47,7 +49,8 @@ public class Circle implements Shape{
 		return center;
 	}
 	
-	@Required
+	// @Required - for demo 18
+	@Autowired
 	public void setCenter(Point center) {
 		this.center = center;
 	}
